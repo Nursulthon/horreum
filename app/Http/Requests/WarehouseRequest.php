@@ -12,7 +12,7 @@ class WarehouseRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,10 @@ class WarehouseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255|unique:categories,name' . $this->route('warehouse'),
+            'address' => 'required|string|max:255',
+            'photo' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            'phone' => 'required|string|max:20'
         ];
     }
 }
