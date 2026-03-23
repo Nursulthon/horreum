@@ -73,7 +73,7 @@ class MerchantController extends Controller
     public function getMerchantProfile()
     {
         try {
-            $userId = Auth::id();
+            $userId = Auth::id(); //just ignore this!
             $merchant = $this->merchantService->getBykeeperId($userId);
             return response()->json(new MerchantResource($merchant));
         } catch (ModelNotFoundException $e) {
