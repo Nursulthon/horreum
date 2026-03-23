@@ -34,9 +34,9 @@ class CategoryController extends Controller
         try {
             $fields = ['id', 'name', 'tagline', 'photo'];
 
-            $categories = $this->categoryService->getById($id, $fields);
+            $category = $this->categoryService->getById($id, $fields);
 
-            return response()->json(new CategoryResource($categories));
+            return response()->json(new CategoryResource($category));
             //new method untuk memberikan response 1 data tertentu
 
         } catch (ModelNotFoundException $e) {
